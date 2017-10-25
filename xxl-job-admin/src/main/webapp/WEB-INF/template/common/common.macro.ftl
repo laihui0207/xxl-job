@@ -86,7 +86,7 @@
 				<li class="nav-click <#if pageName == "jobinfo">active</#if>" ><a href="${request.contextPath}/jobinfo"><i class="fa fa-circle-o text-aqua"></i><span>任务管理</span></a></li>
 				<li class="nav-click <#if pageName == "joblog">active</#if>" ><a href="${request.contextPath}/joblog"><i class="fa fa-circle-o text-yellow"></i><span>调度日志</span></a></li>
                 <li class="nav-click <#if pageName == "jobgroup">active</#if>" ><a href="${request.contextPath}/jobgroup"><i class="fa fa-circle-o text-green"></i><span>执行器管理</span></a></li>
-				<li class="nav-click <#if pageName == "help">active</#if>" ><a href="${request.contextPath}/help"><i class="fa fa-circle-o text-gray"></i><span>使用教程</span></a></li>
+<#--				<li class="nav-click <#if pageName == "help">active</#if>" ><a href="${request.contextPath}/help"><i class="fa fa-circle-o text-gray"></i><span>使用教程</span></a></li>-->
 			</ul>
 		</section>
 		<!-- /.sidebar -->
@@ -175,8 +175,8 @@
         Powered by <b>XXL-JOB</b> 1.7
 		<div class="pull-right hidden-xs">
             <strong>Copyright &copy; 2015-${.now?string('yyyy')} &nbsp;
-                <a href="https://github.com/xuxueli/xxl-job" target="_blank" >github</a>&nbsp;
-                <a href="http://my.oschina.net/xuxueli/blog/690978" target="_blank" >oschina</a>
+                <#--<a href="https://github.com/xuxueli/xxl-job" target="_blank" >github</a>&nbsp;
+                <a href="http://my.oschina.net/xuxueli/blog/690978" target="_blank" >oschina</a>-->
             </strong><!-- All rights reserved. -->
 		</div>
 	</footer>

@@ -1,6 +1,7 @@
 package com.xxl.job.admin.core.util;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -113,13 +114,20 @@ public class MailUtil {
         try {
 			// 创建邮件发送类 JavaMailSender (用于发送多元化邮件，包括附件，图片，html 等    )
         	JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        	mailSender.setHost(host); 			// 设置邮件服务主机    
-        	mailSender.setUsername(username); 	// 发送者邮箱的用户名    
-        	mailSender.setPassword(password); 	// 发送者邮箱的密码    
+        	mailSender.setHost(host); 			// 设置邮件服务主机
+			if(StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(password)) {
+				mailSender.setUsername(username);    // 发送者邮箱的用户名
+				mailSender.setPassword(password);    // 发送者邮箱的密码
+			}
         	
 			//配置文件，用于实例化java.mail.session    
 			Properties pro = new Properties();
-			pro.put("mail.smtp.auth", "true");		// 登录SMTP服务器,需要获得授权 (网易163邮箱新近注册的邮箱均不能授权,测试 sohu 的邮箱可以获得授权)
+			if(StringUtils.isNotEmpty(username)) {
+				pro.put("mail.smtp.auth", "true");
+			}
+			else {
+				pro.put("mail.smtp.auth","false");
+			}
 			pro.put("mail.smtp.socketFactory.port", port);
 			pro.put("mail.smtp.socketFactory.fallback", "false");
 			mailSender.setJavaMailProperties(pro);
@@ -168,7 +176,7 @@ public class MailUtil {
 								+ "></head><body><h1>新书快递通知</h1>你的新书快递申请已推送新书，请到<a href=''>空间"
 								+ "</a>中查看</body></html>";
 						
-						sendMail("ovono802302@163.com", "测试邮件", mailBody, false, null);
+						sendMail("laisun@cisco.com", "测试邮件", mailBody, false, null);
 						System.out.println(total);
 						total++;
 					}

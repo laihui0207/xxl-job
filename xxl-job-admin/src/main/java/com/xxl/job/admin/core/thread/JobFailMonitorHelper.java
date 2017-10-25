@@ -62,7 +62,7 @@ public class JobFailMonitorHelper {
 
 										Set<String> emailSet = new HashSet<String>(Arrays.asList(info.getAlarmEmail().split(",")));
 										for (String email: emailSet) {
-											String title = "《调度监控报警》(任务调度中心XXL-JOB)";
+											String title = "Job Manager: Job Call Failed Alert";
 											XxlJobGroup group = XxlJobDynamicScheduler.xxlJobGroupDao.load(Integer.valueOf(info.getJobGroup()));
 											String content = MessageFormat.format("任务调度失败, 执行器名称:{0}, 任务描述:{1}.", group!=null?group.getTitle():"null", info.getJobDesc());
 											MailUtil.sendMail(email, title, content, false, null);
