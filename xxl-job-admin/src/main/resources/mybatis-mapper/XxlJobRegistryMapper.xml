@@ -10,7 +10,16 @@
 	    <result column="registry_value" property="registryValue" />
 		<result column="update_time" property="updateTime" />
 	</resultMap>
-
+	<resultMap id="XxlJobRegistryHandler" type="com.xxl.job.admin.core.model.XxlJobRegistryHandler" >
+		<result column="id" property="id" />
+		<result column="registry_group" property="registryGroup" />
+		<result column="registry_key" property="registryKey" />
+		<result column="handler_name" property="handlerName" />
+		<result column="handler_parameters" property="handlerParameters" />
+		<result column="handler_description" property="handlerDescription" />
+		<result column="handler_maintainOwner" property="handlerMaintainOwner" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
 	<sql id="Base_Column_List">
 		t.id,
 		t.registry_group,
@@ -43,4 +52,9 @@
         VALUES( #{registryGroup}  , #{registryKey} , #{registryValue}, NOW())
     </insert>
 
+	<select id="findAll" parameterType="java.lang.Integer" resultMap="XxlJobRegistryHandler">
+		SELECT <include refid="Base_Column_List" />
+		FROM XXL_JOB_QRTZ_TRIGGER_REGISTRY_HANDLER AS t
+		WHERE t.update_time <![CDATA[ > ]]> DATE_ADD(NOW(),INTERVAL -#{timeout} SECOND)
+	</select>
 </mapper>

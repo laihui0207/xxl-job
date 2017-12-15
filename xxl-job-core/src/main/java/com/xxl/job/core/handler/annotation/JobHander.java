@@ -16,5 +16,8 @@ import java.lang.annotation.Target;
 public @interface JobHander {
 
     String value() default "";
+    String description() default "";
+    String parameters() default "";
+    String maintainOwner() default "";
     
 }

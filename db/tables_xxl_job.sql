@@ -204,6 +204,18 @@ CREATE TABLE XXL_JOB_QRTZ_TRIGGER_REGISTRY (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE XXL_JOB_QRTZ_TRIGGER_REGISTRY_HANDLER (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `registry_group` varchar(255) NOT NULL,
+  `registry_key` varchar(255) NOT NULL,
+  `handler_value` varchar(255) NOT NULL,
+  `handler_parameters` varchar(255) NOT NULL,
+  `handler_description` varchar(255) NOT NULL,
+  `handler_maintainOwner` varchar(255) NOT NULL,
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `XXL_JOB_QRTZ_TRIGGER_GROUP` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `app_name` varchar(64) NOT NULL COMMENT '执行器AppName',
