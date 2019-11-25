@@ -52,9 +52,9 @@
         VALUES( #{registryGroup}  , #{registryKey} , #{registryValue}, NOW())
     </insert>
 
-	<select id="findAll" parameterType="java.lang.Integer" resultMap="XxlJobRegistryHandler">
+	<!--<select id="findAll" parameterType="java.lang.Integer" resultMap="XxlJobRegistryHandler">
 		SELECT <include refid="Base_Column_List" />
 		FROM XXL_JOB_QRTZ_TRIGGER_REGISTRY_HANDLER AS t
 		WHERE t.update_time <![CDATA[ > ]]> DATE_ADD(NOW(),INTERVAL -#{timeout} SECOND)
-	</select>
+	</select>-->
 </mapper>

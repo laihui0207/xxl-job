@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author xuxueli 2015-12-19 19:43:36
  */
-@JobHander(value="demoJobHandler")
+@JobHander(value="demoJobHandler",description = "DemoHandler")
 @Service
 public class DemoJobHandler extends IJobHandler {
 

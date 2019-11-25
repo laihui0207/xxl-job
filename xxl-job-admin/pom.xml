@@ -14,7 +14,7 @@
         <db.host>localhost</db.host>
         <db.name>xxljob</db.name>
         <db.username>root</db.username>
-        <db.password>root</db.password>
+        <db.password></db.password>
         <mail.host>10.224.38.84</mail.host>
         <mail.username></mail.username>
         <mail.password></mail.password>
